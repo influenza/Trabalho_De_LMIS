@@ -6,7 +6,6 @@ import './App.css';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
  function App() {  
-  const [frase, setfrase] = useState("")
   const [postado, setpostado] = useState(false);
   const [data, setData] = useState("");
 
@@ -20,13 +19,6 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
       }).then(response => {
         console.log(response.data);
         setData(response.data)
-        const frase = [
-          `Voce e mais ${response.data} pessoas foram manipuladas pela internet`,
-          `A manipulacao da internet ja manipulou você e outras ${response.data - 1} pessoas so nesse site`,
-          `.hfkahfajklfa`
-        ];
-        const randomfrase = frase[Math.floor(Math.random()*frase.length)]
-        setfrase(randomfrase)
       }).catch(error => {
         console.log(error);
       });
@@ -35,7 +27,6 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
   return (
     <>
       <div>
-        {frase}
       </div>
      <button id='btnSaibaMais'>
      <Link to="/">Saiba Mais</Link>
